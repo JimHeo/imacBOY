@@ -1,2 +1,2 @@
-# image_classification_boilerplate
+# Image Classification Boilerplate
 using Tensorflow Backend Keras
