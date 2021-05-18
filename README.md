@@ -14,7 +14,7 @@ git clone https://github.com/JimHeo/image_classification_boilerplate.git
 pip install -r requirements.txt
 ```
 
-### Demo
+### Example
 
 ```
 data_path = "/path/to/your/dataset/"
