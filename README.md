@@ -1,4 +1,4 @@
-# ImaCBOY
+# imacBOY
 Image Classification Boilerplate using Tensorflow Backend Keras
 
 Derivative Work from [frankkramer-lab/MIScnn](https://github.com/frankkramer-lab/MIScnn)
