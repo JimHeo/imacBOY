@@ -27,9 +27,9 @@ import numpy as np
 from tensorflow.keras.utils import to_categorical
 import threading
 # Internal libraries/scripts
-from processing.data_augmentation import Data_Augmentation
-from processing.batch_creation import create_batches
-from data_loading.interfaces.image_io import PASCAL_VOC_DATASET
+from imacboy.processing.data_augmentation import Data_Augmentation
+from imacboy.processing.batch_creation import create_batches
+from imacboy.data_loading.interfaces.image_io import PASCAL_VOC_DATASET
 
 #-----------------------------------------------------#
 #                 Preprocessor class                  #

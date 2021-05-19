@@ -22,7 +22,7 @@
 from tensorflow.keras.applications.xception import Xception
 from tensorflow.keras.models import Model
 from tensorflow.keras.layers import Dense, Input
-from neural_network.architecture.abstract_architecture import Abstract_Architecture
+from imacboy.neural_network.architecture.abstract_architecture import Abstract_Architecture
 
 #-----------------------------------------------------#
 #                 Architecture class                  #

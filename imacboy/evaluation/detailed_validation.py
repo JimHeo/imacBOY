@@ -20,7 +20,7 @@
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.       #
 #==============================================================================#
 from sklearn.metrics import f1_score
-from data_loading.data_io import backup_evaluation
+from imacboy.data_loading.data_io import backup_evaluation
 
 #-----------------------------------------------------#
 #                 Detailed Validation                 #
@@ -51,7 +51,7 @@ def detailed_validation(validation_samples, model, evaluation_path):
         # Access image, truth and predicted segmentation data
         target = sample.target_data
         # Calculate classwise dice score
-        f1_scores = f1_score(target, pred)
+        f1_scores = f1_score(target, pred, average='macro')
         # Save detailed validation scores to file
         scores = [sample_index]
         scores.extend(f1_scores)

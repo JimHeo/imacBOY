@@ -23,9 +23,9 @@ import numpy as np
 import math
 import os
 from tensorflow.keras.callbacks import ModelCheckpoint
-from data_loading.data_io import create_directories, backup_history
-from utils.plotting import plot_validation
-from evaluation.detailed_validation import detailed_validation
+from imacboy.data_loading.data_io import create_directories, backup_history
+from imacboy.utils.plotting import plot_validation
+from imacboy.evaluation.detailed_validation import detailed_validation
 
 #-----------------------------------------------------#
 #             Percentage-Split Validation             #

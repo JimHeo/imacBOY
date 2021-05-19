@@ -1,14 +1,14 @@
 import os
-from data_loading.interfaces.image_io import Image_interface
-from data_loading.data_io import Data_IO
-from processing.data_augmentation import Data_Augmentation
-from processing.subfunctions.normalization import Normalization
-from processing.subfunctions.resize import Resize
-from processing.preprocessor import Preprocessor
-from neural_network.architecture.xception import Architecture
-from neural_network.model import Neural_Network
-from neural_network.metrics import binary_f1_focal, f1_score, binary_crossentropy, binary_focal_loss, precision
-from evaluation.split_validation import split_validation
+from imacboy.data_loading.interfaces.image_io import Image_interface
+from imacboy.data_loading.data_io import Data_IO
+from imacboy.processing.data_augmentation import Data_Augmentation
+from imacboy.processing.subfunctions.normalization import Normalization
+from imacboy.processing.subfunctions.resize import Resize
+from imacboy.processing.preprocessor import Preprocessor
+from imacboy.neural_network.architecture.xception import Architecture
+from imacboy.neural_network.model import Neural_Network
+from imacboy.neural_network.metrics import binary_f1_focal, f1_score, binary_crossentropy, binary_focal_loss, precision
+from imacboy.evaluation.split_validation import split_validation
 from tensorflow.keras.callbacks import ReduceLROnPlateau, EarlyStopping
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"

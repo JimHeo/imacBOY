@@ -26,7 +26,7 @@
 import os
 import random
 import pickle
-from data_loading.sample import Sample
+from imacboy.data_loading.sample import Sample
 
 #-----------------------------------------------------#
 #                    Data IO class                    #

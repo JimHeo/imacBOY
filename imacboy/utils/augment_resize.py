@@ -1,4 +1,4 @@
-from utils.resize_multichannel_image import resize_multichannel_image
+from imacboy.utils.resize_multichannel_image import resize_multichannel_image
 
 def augment_resize(sample_data, target_size, order=3):
     """

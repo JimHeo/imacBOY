@@ -28,7 +28,7 @@ from PIL import Image
 import numpy as np
 import re
 # Internal libraries/scripts
-from data_loading.interfaces.abstract_io import Abstract_IO
+from imacboy.data_loading.interfaces.abstract_io import Abstract_IO
 
 PASCAL_VOC_DATASET = {
     'num_of_classes': 20,

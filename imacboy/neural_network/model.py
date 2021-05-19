@@ -27,10 +27,9 @@ from tensorflow.keras.optimizers import Adam
 import numpy as np
 import math
 from tensorflow.python.keras.utils.np_utils import to_categorical
-from neural_network.metrics import binary_crossentropy
-from sklearn.metrics import f1_score
-from neural_network.architecture.xception import Architecture
-from data_loading.dataloader import Dataloader
+from imacboy.neural_network.metrics import binary_crossentropy, f1_score
+from imacboy.neural_network.architecture.xception import Architecture
+from imacboy.data_loading.dataloader import Dataloader
 
 #-----------------------------------------------------#
 #            Neural Network (model) class             #
