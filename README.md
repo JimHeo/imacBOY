@@ -1,7 +1,7 @@
-# Image Classification Boilerplate
-using Tensorflow Backend Keras
+# ImaCBoy
+Image Classification Boilerplate using Tensorflow Backend Keras
 
-Derivative Work from frankkramer-lab/MIScnn
+Derivative Work from [frankkramer-lab/MIScnn](https://github.com/frankkramer-lab/MIScnn)
 
 This project aims to implement boilerplate for classification with tensorflow 2.4.1.
 
