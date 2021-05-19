@@ -32,26 +32,28 @@ import numpy as np
 #                 Precision & Recall                  #
 #-----------------------------------------------------#
 def precision(y_true, y_pred):
-    y_true_yn = K.round(K.clip(y_true, 0, 1))
-    y_pred_yn = K.round(K.clip(y_pred, 0, 1))
+    epsilon = K.epsilon()
+    y_true = tf.cast(y_true, tf.float32)
+    y_pred = K.round(K.clip(y_pred, epsilon, 1.0 - epsilon))
 
     # True Positive
-    tp = K.sum(y_true_yn * y_pred_yn) 
+    tp = K.sum(y_true * y_pred) 
     # True Positive + False Positive
-    tp_fp = K.sum(y_pred_yn)
+    tp_fp = K.sum(y_pred)
 
     precision = tp / (tp_fp + K.epsilon())
 
     return precision
 
 def recall(y_true, y_pred):
-    y_true_yn = K.round(K.clip(y_true, 0, 1))
-    y_pred_yn = K.round(K.clip(y_pred, 0, 1))
+    epsilon = K.epsilon()
+    y_true = tf.cast(y_true, tf.float32)
+    y_pred = K.round(K.clip(y_pred, epsilon, 1.0 - epsilon))
 
     # True Positive
-    tp = K.sum(y_true_yn * y_pred_yn) 
+    tp = K.sum(y_true * y_pred) 
     # True Positive + False Negative
-    tp_fn = K.sum(y_true_yn)
+    tp_fn = K.sum(y_true)
     
     recall = tp / (tp_fn + K.epsilon())
 
@@ -63,7 +65,7 @@ def recall(y_true, y_pred):
 def f1_score(y_true, y_pred):
     _recall = recall(y_true, y_pred)
     _precision = precision(y_true, y_pred)
-    _f1score = ( 2 * _recall * _precision) / (_recall + _precision+ K.epsilon())
+    _f1score = ( 2 * _recall * _precision) / (_recall + _precision + K.epsilon())
     
     return _f1score
 
@@ -84,7 +86,7 @@ def categorical_crossentropy(y_true, y_pred):
 #-----------------------------------------------------#
 def binary_crossentropy(y_true, y_pred):
     # Obtain Crossentropy
-    return K.sum(K.binary_crossentropy(y_true, y_pred))
+    return K.mean(K.binary_crossentropy(y_true, y_pred))
 
 def binary_focal_loss(gamma=2., alpha=.25):
     """
