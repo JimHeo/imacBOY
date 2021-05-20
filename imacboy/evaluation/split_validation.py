@@ -48,7 +48,7 @@ Args:
     return_output (boolean):                Option, if computed evaluations will be output as the return of this function or
                                             if the evaluations will be saved on disk in the evaluation directory.
 """
-def split_validation(sample_list, model, percentage=0.2, epochs=20, evaluation_path="evaluations",
+def split_validation(sample_list, model, percentage=0.2, epochs=20, evaluation_path="evaluation",
                      draw_figures=False, run_detailed_evaluation=False,
                      callbacks=[], return_output=False, save_models=True):
     # Calculate the number of samples in the validation set
