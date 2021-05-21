@@ -34,6 +34,8 @@ Args:
                                             used for storing all kinds of evaluation results during the validation processes.
                                             if the evaluations will be saved on disk in the evaluation directory.
 """
+
+######todo: complete the function
 def detailed_validation(validation_samples, model, evaluation_path):
     # Initialize detailed validation scoring file
     classes = list(map(lambda x: "f1_class-" + str(x),
@@ -44,22 +46,19 @@ def detailed_validation(validation_samples, model, evaluation_path):
     # Iterate over each sample
     for sample_index in validation_samples:
         # Predict the sample with the provided model
-        pred = model.predict([sample_index])
+        pred = model.predict([sample_index])[0].tolist()
         # Load the sample
         sample = model.preprocessor.data_io.sample_loader(sample_index, load_target=True)
         # Access image, truth and predicted segmentation data
         target = sample.target_data
         # Calculate classwise dice score
-        f1_scores = compute_f1_score(target, pred, len(classes))
+        f1_scores = compute_f1_score(target, pred)
         # Save detailed validation scores to file
         scores = [sample_index]
         scores.extend(f1_scores)
         backup_evaluation(scores, evaluation_path, start=False)
         
-def compute_f1_score(target, pred, classes):
-    f1_scores = []
-    for i in range(classes):
-        score = f1_score(target, pred, pos_label=i, average='binary')
-        f1_scores.append(score)
+def compute_f1_score(target, pred):
+    score = f1_score(target, pred)
         
-    return f1_scores
+    return score

@@ -171,7 +171,7 @@ class Neural_Network:
             # Run prediction process with Keras predict
             pred_list = []
             for batch in dataGen:
-                pred_batch = self.model.predict_on_batch(batch)
+                pred_batch = self.model.predict_on_batch(batch)[0]
                 pred_list.append(pred_batch)
             pred = np.concatenate(pred_list, axis=0)
             if activation_output == False:
