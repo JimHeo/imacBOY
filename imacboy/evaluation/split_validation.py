@@ -25,6 +25,7 @@ import os
 from tensorflow.keras.callbacks import ModelCheckpoint
 from imacboy.data_loading.data_io import create_directories, backup_history
 from imacboy.utils.plotting import plot_validation
+from imacboy.evaluation.detailed_validation import detailed_validation
 
 #-----------------------------------------------------#
 #             Percentage-Split Validation             #
@@ -48,7 +49,8 @@ Args:
                                             if the evaluations will be saved on disk in the evaluation directory.
 """
 def split_validation(sample_list, model, percentage=0.2, epochs=20, evaluation_path="evaluation",
-                     draw_figures=False, callbacks=[], return_output=False, save_models=True):
+                     draw_figures=False, run_detailed_evaluation=False,
+                     callbacks=[], return_output=False, save_models=True):
     # Calculate the number of samples in the validation set
     validation_size = int(math.ceil(float(len(sample_list) * percentage)))
     # Randomly pick samples until %-split percentage
@@ -68,6 +70,9 @@ def split_validation(sample_list, model, percentage=0.2, epochs=20, evaluation_p
     # Draw plots for the training & validation
     if draw_figures:
         plot_validation(history.history, model.metrics, evaluation_path)
+    # Make a detailed validation
+    if run_detailed_evaluation:
+        detailed_validation(validation, model, evaluation_path)
     # Return or backup the validation results
     if return_output : return history.history
     else : backup_history(history.history, evaluation_path)
