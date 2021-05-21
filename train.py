@@ -47,4 +47,4 @@ model = Neural_Network(preprocessor=pp, architecture=unet_densePlain, loss=binar
 cb_lr = ReduceLROnPlateau(monitor='val_f1_score', factor=0.1, patience=20, verbose=1, mode='max', min_delta=0.0001, cooldown=1, min_lr=0.00000003)
 cb_es = EarlyStopping(monitor='val_f1_score', min_delta=0, patience=150, verbose=1, mode='max')
 
-split_validation(sample_list, model, percentage=0.2, epochs=10, evaluation_path="evaluation", draw_figures=True, run_detailed_evaluation=True, callbacks=[cb_lr, cb_es])
+split_validation(sample_list, model, percentage=0.2, epochs=10, evaluation_path="evaluation", draw_figures=True, callbacks=[cb_lr, cb_es])
